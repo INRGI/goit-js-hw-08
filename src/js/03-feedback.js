@@ -20,11 +20,15 @@ function saveMessage(event) {
 
 function onSubmit(event) {
     event.preventDefault();
-    console.log(dataUserInfo);
-
-    localStorage.removeItem('feedback-form-state');
-    selectForm.reset();
-    dataUserInfo = {};
+    
+    if (email.value === '' || message.value === '') {
+        return alert('You need to fill all fields')
+    }
+        console.log(dataUserInfo);
+        selectForm.reset();
+        localStorage.removeItem('feedback-form-state');
+        
+        dataUserInfo = {};
 }
 
 function onReload() {
